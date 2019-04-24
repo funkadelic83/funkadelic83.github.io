@@ -41,13 +41,27 @@ var config = {
   var whereTo = childSnapshot.val().destination;
   var firstTrain = childSnapshot.val().first;
   var howOften = childSnapshot.val().frequency;
-  
+
+  //THIS WILL DETERMINE WHAT TIME THE NEXT TRAIN WILL COME
+
+
+ var currentTime = moment().format("HH:mm");
+ var fromNow = moment().startOf(firstTrain).fromNow();
+
+
+ 
+//
+
   var newRow = $("<tr>").append(
       $("<td>").text(trainRef),
       $("<td>").text(whereTo),
       $("<td>").text(firstTrain),
-      $("<td>").text(howOften)
+      $("<td>").text(howOften),
+      $("<td>").text(fromNow),
   );
 
   $("#train-table > tbody").append(newRow);
   });
+
+//   var currentTime = moment();
+//   console.log(currentTime);
